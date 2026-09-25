@@ -141,6 +141,11 @@ h3 {
   margin-bottom: 8px;
 }
 
+.tag.free {
+  color: #ffffff;
+  background: #16a34a;
+}
+
 ol, ul { padding-left: 20px; }
 li { margin: 6px 0; }
 
