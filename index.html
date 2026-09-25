@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Clock browser extension — world clock, alarms, stopwatch, and timer</title>
+    <meta
+      name="description"
+      content="Clock is a lightweight browser extension for world time zones, alarms, a free stopwatch, and a countdown timer. Times stay on your device."
+    />
+    <link rel="canonical" href="https://roshancodes24.github.io/clock-site/" />
+    <meta property="og:title" content="Clock browser extension" />
+    <meta
+      property="og:description"
+      content="World clock, alarms, stopwatch, and timer in a small browser popup. Stopwatch is free. Other tools are premium."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://roshancodes24.github.io/clock-site/" />
+    <link rel="icon" href="icon48.png" />
+    <link rel="stylesheet" href="site.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Clock",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Chrome, Edge",
+        "description": "A lightweight browser extension with a world clock, alarms, a stopwatch, and a countdown timer.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Stopwatch is free. World Clock, Alarms, and Timer are premium in this version via a local test switch."
+        },
+        "url": "https://roshancodes24.github.io/clock-site/"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the Clock browser extension?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Clock is a browser popup with four tools: a world clock, alarms, a stopwatch, and a countdown timer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which Clock features are free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The stopwatch is free. World Clock, Alarms, and Timer are premium."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Clock send my times to a server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Selected time zones, alarms, stopwatch state, and timer state stay in browser extension storage on your device."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens when an alarm or timer finishes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An alarm blurs the open web page and shows the alarm name, time, Snooze, and Stop. A finished timer blurs the page, shows 00:00 in red, a Close button, and Time's up, then closes after 4 seconds."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="./">Clock</a>
+        <nav aria-label="Site">
+          <a href="#features">Features</a>
+          <a href="#questions">Questions</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <h1>Clock, a browser extension for time zones, alarms, a stopwatch, and a timer</h1>
+      <p class="lead">
+        Clock puts four time tools in one small popup. The stopwatch is free.
+        World Clock, Alarms, and Timer are premium. Your clocks and timers stay on this device.
+      </p>
+      <div class="actions">
+        <a class="btn secondary" href="#install">How to install</a>
+      </div>
+
+      <h2 id="features">What Clock includes</h2>
+      <div class="grid two">
+        <article class="card">
+          <span class="tag">Premium</span>
+          <h3>World Clock</h3>
+          <p>
+            Add and remove cities such as New York, London, Mumbai, Tokyo, and Sydney.
+            Each card shows the local time, date, and time-zone abbreviation using your system clock.
+          </p>
+        </article>
+        <article class="card">
+          <span class="tag">Premium</span>
+          <h3>Alarms</h3>
+          <p>
+            Set a time and an optional name, then turn the alarm on or off. When it rings, the web page blurs and shows the name, time, Snooze, and Stop. Snooze waits 5 minutes.
+          </p>
+        </article>
+        <article class="card">
+          <span class="tag">Free</span>
+          <h3>Stopwatch</h3>
+          <p>
+            Start, pause, resume, reset, and record laps with centiseconds. Elapsed time stays correct if you close the popup and open it again.
+          </p>
+        </article>
+        <article class="card">
+          <span class="tag">Premium</span>
+          <h3>Timer</h3>
+          <p>
+            Enter hours, minutes, and seconds, then start, pause, resume, or reset. At zero, the page shows 00:00 in red, Close, and “Time's up!” for 4 seconds.
+          </p>
+        </article>
+      </div>
+
+      <h2>Who Clock is for</h2>
+      <p>
+        Clock is for anyone who checks another city’s time, needs a quick countdown, or times a task without leaving the browser. It is built for Chrome and other Chromium browsers such as Edge, version 116 or newer.
+      </p>
+
+      <h2>Free and premium tools</h2>
+      <p>
+        Open the popup and the stopwatch is ready. World Clock, Alarms, and Timer show an upgrade screen until premium is turned on. This version stores that choice on your device. There is no payment account inside the extension.
+      </p>
+
+      <h2 id="install">How to install Clock</h2>
+      <ol>
+        <li>Open the private Clock project folder on your computer.</li>
+        <li>Open <code>chrome://extensions</code> and turn on Developer mode.</li>
+        <li>Choose Load unpacked and select the Clock folder.</li>
+        <li>Pin Clock and click the icon. The stopwatch is the first screen.</li>
+      </ol>
+
+      <h2 id="questions">Questions about Clock</h2>
+
+      <h3>What is the Clock browser extension?</h3>
+      <p class="answer">
+        Clock is a browser popup with a world clock, alarms, a stopwatch, and a countdown timer.
+      </p>
+
+      <h3>Which features are free?</h3>
+      <p class="answer">
+        The stopwatch is free. World Clock, Alarms, and Timer are premium.
+      </p>
+
+      <h3>Does Clock upload my alarms or time zones?</h3>
+      <p class="answer">
+        No. Those details stay in the browser’s extension storage on your computer. Read the <a href="privacy.html">privacy policy</a> for the full list.
+      </p>
+
+      <h3>What does an alarm look like when it rings?</h3>
+      <p class="answer">
+        The current web page blurs. A card shows the alarm name, the time, Snooze, and Stop. Snooze rings again in 5 minutes. Stop ends this ring and keeps the alarm for the next day.
+      </p>
+
+      <h3>What does the timer show at zero?</h3>
+      <p class="answer">
+        The page blurs and shows 00:00 in red, a Close button, and “Time's up!” with a red clock icon. The screen closes after 4 seconds, or sooner if you press Close.
+      </p>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        · <a href="privacy.html">Privacy policy</a>
+      </div>
+    </footer>
+  </body>
+</html>
