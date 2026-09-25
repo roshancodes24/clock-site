@@ -273,6 +273,20 @@ footer.site {
   font-size: 13px;
 }
 
+.compare thead th:not(:first-child),
+.compare td {
+  text-align: center;
+}
+
+.mark {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.mark.yes { color: #16a34a; }
+.mark.no { color: var(--muted); }
+
 .compare-key {
   font-size: 14px;
   color: var(--muted);
