@@ -31,7 +31,7 @@
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "USD",
-          "description": "Stopwatch is free. World Clock, Alarms, and Timer are premium in this version via a local test switch."
+          "description": "Stopwatch is free. World Clock, Alarms, and Timer are available with a premium purchase."
         },
         "url": "https://roshancodes24.github.io/clock-site/"
       }
@@ -54,12 +54,20 @@
             "name": "Which Clock features are free?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "The stopwatch is free. World Clock, Alarms, and Timer are premium."
+              "text": "The stopwatch is free. World Clock, Alarms, and Timer unlock after a premium purchase."
             }
           },
           {
             "@type": "Question",
-            "name": "Does Clock send my times to a server?",
+            "name": "How do I unlock premium features?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Premium is purchased through a secure checkout page. Clock does not store your card number. After payment, World Clock, Alarms, and Timer unlock. The stopwatch stays free."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Clock upload my alarms or time zones?",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "No. Selected time zones, alarms, stopwatch state, and timer state stay in browser extension storage on your device."
@@ -139,8 +147,15 @@
 
       <h2>Free and premium tools</h2>
       <p>
-        Open the popup and the stopwatch is ready. World Clock, Alarms, and Timer show an upgrade screen until premium is turned on. This version stores that choice on your device. There is no payment account inside the extension.
+        The stopwatch is free as soon as you open Clock. World Clock, Alarms, and Timer are premium. You can buy premium on a secure checkout page. Clock does not store your card number. After payment, those three tools unlock in the extension. The stopwatch stays free either way.
       </p>
+
+      <h2>How premium purchase works</h2>
+      <ol>
+        <li>Choose Upgrade inside Clock when you open World Clock, Alarms, or Timer.</li>
+        <li>Complete payment on the secure checkout page.</li>
+        <li>Return to Clock. Premium tools stay available on that browser.</li>
+      </ol>
 
       <h2 id="install">How to install Clock</h2>
       <ol>
@@ -159,7 +174,12 @@
 
       <h3>Which features are free?</h3>
       <p class="answer">
-        The stopwatch is free. World Clock, Alarms, and Timer are premium.
+        The stopwatch is free. World Clock, Alarms, and Timer unlock after you buy premium.
+      </p>
+
+      <h3>How do I unlock premium features?</h3>
+      <p class="answer">
+        Use Upgrade in Clock, then pay on the secure checkout page. Clock does not keep your card number. World Clock, Alarms, and Timer unlock after payment.
       </p>
 
       <h3>Does Clock upload my alarms or time zones?</h3>
@@ -180,7 +200,7 @@
 
     <footer class="site">
       <div class="wrap">
-        · <a href="privacy.html">Privacy policy</a>
+        <a href="privacy.html">Privacy policy</a>
       </div>
     </footer>
   </body>
