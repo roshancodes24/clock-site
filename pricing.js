@@ -2,7 +2,7 @@
 // Annual and Lifetime product IDs are fixed. The buttons open the matching
 // hosted checkout URL. Replace the host below if you switch between test and live.
 
-const CHECKOUT_HOST = "https://checkout.dodopayments.com/buy";
+const CHECKOUT_HOST = "https://test.checkout.dodopayments.com/buy";
 const RETURN_URL = "https://roshancodes24.github.io/clock-site/pricing.html";
 
 window.CLOCK_PRICING = {
