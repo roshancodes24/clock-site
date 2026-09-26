@@ -11,10 +11,15 @@ window.CLOCK_PRICING = {
   },
 };
 
+const installationId = new URLSearchParams(window.location.search).get("installation_id");
+const hasInstallationId = /^[0-9a-f-]{36}$/i.test(installationId || "");
+
 document.querySelectorAll("[data-plan]").forEach((button) => {
   const plan = window.CLOCK_PRICING[button.dataset.plan];
   if (!plan || !plan.checkoutUrl) return;
   button.addEventListener("click", () => {
-    window.location.href = plan.checkoutUrl;
+    const url = new URL(plan.checkoutUrl);
+    if (hasInstallationId) url.searchParams.set("metadata_installation_id", installationId);
+    window.location.href = url.toString();
   });
 });
