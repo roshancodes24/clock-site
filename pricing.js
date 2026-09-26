@@ -1,25 +1,30 @@
-// Prices and checkout links for the public pricing page.
-// When checkout is ready, paste each payment URL into checkoutUrl.
-// Leave checkoutUrl as an empty string until then. The buttons stay visible
-// and do not open a payment page.
+// Checkout links for the public pricing page.
+// Annual and Lifetime product IDs are fixed. The buttons open the matching
+// hosted checkout URL. Replace the host below if you switch between test and live.
+
+const CHECKOUT_HOST = "https://checkout.dodopayments.com/buy";
+const RETURN_URL = "https://roshancodes24.github.io/clock-site/pricing.html";
 
 window.CLOCK_PRICING = {
   annual: {
-    checkoutUrl: "",
+    productId: "pdt_0NoQLOTtxTPc0ZMXI10Vl",
   },
   lifetime: {
-    checkoutUrl: "",
+    productId: "pdt_0NoQRzf9EjqwHBBM4OVRk",
   },
 };
 
+function checkoutUrl(productId) {
+  const url = new URL(`${CHECKOUT_HOST}/${productId}`);
+  url.searchParams.set("quantity", "1");
+  url.searchParams.set("redirect_url", RETURN_URL);
+  return url.toString();
+}
+
 document.querySelectorAll("[data-plan]").forEach((button) => {
-  button.addEventListener("click", (event) => {
-    const plan = window.CLOCK_PRICING[button.dataset.plan];
-    const url = plan && plan.checkoutUrl;
-    if (!url) {
-      event.preventDefault();
-      return;
-    }
-    window.location.href = url;
+  const plan = window.CLOCK_PRICING[button.dataset.plan];
+  if (!plan) return;
+  button.addEventListener("click", () => {
+    window.location.href = checkoutUrl(plan.productId);
   });
 });
