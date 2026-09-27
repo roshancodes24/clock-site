@@ -51,7 +51,7 @@
           <p class="license-label">Your license key:</p>
           <p class="license-key" id="license-key">Looking up your license key…</p>
           <button id="copy-license" class="btn secondary" type="button" hidden>Copy license key</button>
-          <p class="lead" id="license-note">Save this license key. You can use it to restore Premium after reinstalling Clock.</p>
+          <p class="lead" id="license-note">Save this license key. You can use it to unlock premium features.</p>
         </div>
         <a class="btn" href="./">Continue to Clock</a>
       </div>
@@ -74,7 +74,7 @@
         const licenseKey = String(key || "").split(",")[0].trim();
         if (!licenseKey) return false;
         licenseKeyEl.textContent = licenseKey;
-        licenseNote.textContent = "Save this license key. You can use it to restore Premium after reinstalling Clock.";
+        licenseNote.textContent = "Save this license key. You can use it to unlock premium features.";
         copyBtn.hidden = false;
         return true;
       }
