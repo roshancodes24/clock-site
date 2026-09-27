@@ -9,64 +9,6 @@
     <link rel="canonical" href="https://roshancodes24.github.io/clock-site/success.html" />
     <link rel="icon" href="icon48.png" />
     <link rel="stylesheet" href="site.css" />
-    <style>
-      .success {
-        gap: 16px;
-      }
-      .success h1 {
-        margin: 0;
-      }
-      .success .lead {
-        margin: 0;
-      }
-      .success .btn.continue {
-        margin-top: 8px;
-      }
-      .license-card {
-        width: min(36rem, 100%);
-        margin: 8px 0 0;
-        padding: 16px 18px;
-        border: 1px solid var(--border, #e2e8f0);
-        border-radius: 14px;
-        background: var(--card, #ffffff);
-        text-align: left;
-      }
-      .license-label {
-        margin: 0 0 10px;
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--muted, #64748b);
-      }
-      .license-row {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .license-key {
-        flex: 1 1 auto;
-        min-width: 0;
-        margin: 0;
-        padding: 0;
-        border: none;
-        background: none;
-        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-        font-size: 15px;
-        font-weight: 700;
-        letter-spacing: 0.02em;
-        word-break: break-all;
-      }
-      #copy-license {
-        flex: 0 0 auto;
-        margin: 0;
-        padding: 8px 12px;
-        font-size: 13px;
-      }
-      #license-note {
-        margin: 10px 0 0;
-        font-size: 14px;
-        color: var(--muted, #64748b);
-      }
-    </style>
   </head>
   <body>
     <header class="site">
@@ -84,19 +26,9 @@
       <div class="wrap success">
         <div class="success-mark" aria-hidden="true">✓</div>
         <h1>Payment Successful!</h1>
-        <p class="lead" id="success-lead">Your Clock Premium purchase was successful.</p>
-        <p class="lead" id="success-unlocked">Premium features are now unlocked.</p>
-        <div id="license-block">
-          <p class="lead">Clock Premium is now active.</p>
-          <div class="license-card">
-            <p class="license-label">Your license key</p>
-            <div class="license-row">
-              <p class="license-key" id="license-key">Looking up your license key…</p>
-              <button id="copy-license" class="btn secondary" type="button" hidden>Copy</button>
-            </div>
-            <p id="license-note">Save this license key. Use it to unlock premium features.</p>
-          </div>
-        </div>
+        <p class="lead">
+          Your license key has been emailed to you. Please check your inbox and enter the key in Clock to unlock your premium features.
+        </p>
         <a class="btn continue" href="./">Continue to Clock</a>
       </div>
     </main>
@@ -107,71 +39,5 @@
         · <a href="privacy.html">Privacy policy</a>
       </div>
     </footer>
-    <script>
-      const BACKEND_URL = "https://www.clockextension.site";
-      const params = new URLSearchParams(window.location.search);
-      const licenseKeyEl = document.getElementById("license-key");
-      const licenseNote = document.getElementById("license-note");
-      const copyBtn = document.getElementById("copy-license");
-
-      function showLicense(key) {
-        const licenseKey = String(key || "").split(",")[0].trim();
-        if (!licenseKey) return false;
-        licenseKeyEl.textContent = licenseKey;
-        licenseNote.textContent = "Save this license key. Use it to unlock premium features.";
-        copyBtn.hidden = false;
-        return true;
-      }
-
-      function showMissingLicense() {
-        licenseKeyEl.textContent = "";
-        licenseNote.textContent =
-          "Your license key was not on this page yet. Check the email from Dodo Payments and save that key.";
-        copyBtn.hidden = true;
-      }
-
-      async function lookupLicense() {
-        const paymentId = params.get("payment_id") || "";
-        const subscriptionId = params.get("subscription_id") || "";
-        if (!paymentId && !subscriptionId) return "";
-        const url = new URL(BACKEND_URL + "/license");
-        if (paymentId) url.searchParams.set("paymentId", paymentId);
-        if (subscriptionId) url.searchParams.set("subscriptionId", subscriptionId);
-        for (let attempt = 0; attempt < 5; attempt += 1) {
-          try {
-            const response = await fetch(url);
-            if (response.ok) {
-              const data = await response.json();
-              if (data.licenseKey) return data.licenseKey;
-            }
-          } catch (error) {}
-          await new Promise((resolve) => setTimeout(resolve, 1500));
-        }
-        return "";
-      }
-
-      copyBtn.addEventListener("click", async () => {
-        const key = licenseKeyEl.textContent.trim();
-        if (!key) return;
-        try {
-          await navigator.clipboard.writeText(key);
-          copyBtn.textContent = "Copied";
-        } catch (error) {
-          copyBtn.textContent = "Copy failed";
-        }
-      });
-
-      const fromUrl = params.get("license_key");
-      if (fromUrl && showLicense(fromUrl)) {
-        document.getElementById("success-lead").hidden = true;
-        document.getElementById("success-unlocked").hidden = true;
-      } else {
-        lookupLicense().then((key) => {
-          document.getElementById("success-lead").hidden = true;
-          document.getElementById("success-unlocked").hidden = true;
-          if (!showLicense(key)) showMissingLicense();
-        });
-      }
-    </script>
   </body>
 </html>
