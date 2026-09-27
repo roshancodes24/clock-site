@@ -340,3 +340,28 @@ footer.site {
 .success .btn {
   margin-top: 16px;
 }
+
+.license-label {
+  margin: 16px 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.license-key {
+  margin: 0;
+  max-width: 100%;
+  min-height: 1.4em;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  word-break: break-all;
+}
+
+#copy-license {
+  margin-top: 12px;
+}

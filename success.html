@@ -9,6 +9,24 @@
     <link rel="canonical" href="https://roshancodes24.github.io/clock-site/success.html" />
     <link rel="icon" href="icon48.png" />
     <link rel="stylesheet" href="site.css" />
+    <style>
+      .license-label { margin: 16px 0 8px; font-size: 14px; font-weight: 600; }
+      .license-key {
+        margin: 0 auto;
+        max-width: 28rem;
+        min-height: 1.4em;
+        padding: 10px 14px;
+        border: 1px solid var(--border, #e2e8f0);
+        border-radius: 10px;
+        background: var(--card, #ffffff);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        word-break: break-all;
+      }
+      #copy-license { margin-top: 12px; }
+    </style>
   </head>
   <body>
     <header class="site">
@@ -26,8 +44,15 @@
       <div class="wrap success">
         <div class="success-mark" aria-hidden="true">✓</div>
         <h1>Payment Successful!</h1>
-        <p class="lead">Your Clock Premium purchase was successful.</p>
-        <p class="lead">Premium features are now unlocked.</p>
+        <p class="lead" id="success-lead">Your Clock Premium purchase was successful.</p>
+        <p class="lead" id="success-unlocked">Premium features are now unlocked.</p>
+        <div id="license-block">
+          <p class="lead">Clock Premium is now active.</p>
+          <p class="license-label">Your license key:</p>
+          <p class="license-key" id="license-key">Looking up your license key…</p>
+          <button id="copy-license" class="btn secondary" type="button" hidden>Copy license key</button>
+          <p class="lead" id="license-note">Save this license key. You can use it to restore Premium after reinstalling Clock.</p>
+        </div>
         <a class="btn" href="./">Continue to Clock</a>
       </div>
     </main>
@@ -38,5 +63,71 @@
         · <a href="privacy.html">Privacy policy</a>
       </div>
     </footer>
+    <script>
+      const BACKEND_URL = "https://www.clockextension.site";
+      const params = new URLSearchParams(window.location.search);
+      const licenseKeyEl = document.getElementById("license-key");
+      const licenseNote = document.getElementById("license-note");
+      const copyBtn = document.getElementById("copy-license");
+
+      function showLicense(key) {
+        const licenseKey = String(key || "").split(",")[0].trim();
+        if (!licenseKey) return false;
+        licenseKeyEl.textContent = licenseKey;
+        licenseNote.textContent = "Save this license key. You can use it to restore Premium after reinstalling Clock.";
+        copyBtn.hidden = false;
+        return true;
+      }
+
+      function showMissingLicense() {
+        licenseKeyEl.textContent = "";
+        licenseNote.textContent =
+          "Your license key was not on this page yet. Check the email from Dodo Payments and save that key.";
+        copyBtn.hidden = true;
+      }
+
+      async function lookupLicense() {
+        const paymentId = params.get("payment_id") || "";
+        const subscriptionId = params.get("subscription_id") || "";
+        if (!paymentId && !subscriptionId) return "";
+        const url = new URL(BACKEND_URL + "/license");
+        if (paymentId) url.searchParams.set("paymentId", paymentId);
+        if (subscriptionId) url.searchParams.set("subscriptionId", subscriptionId);
+        for (let attempt = 0; attempt < 5; attempt += 1) {
+          try {
+            const response = await fetch(url);
+            if (response.ok) {
+              const data = await response.json();
+              if (data.licenseKey) return data.licenseKey;
+            }
+          } catch (error) {}
+          await new Promise((resolve) => setTimeout(resolve, 1500));
+        }
+        return "";
+      }
+
+      copyBtn.addEventListener("click", async () => {
+        const key = licenseKeyEl.textContent.trim();
+        if (!key) return;
+        try {
+          await navigator.clipboard.writeText(key);
+          copyBtn.textContent = "Copied";
+        } catch (error) {
+          copyBtn.textContent = "Copy failed";
+        }
+      });
+
+      const fromUrl = params.get("license_key");
+      if (fromUrl && showLicense(fromUrl)) {
+        document.getElementById("success-lead").hidden = true;
+        document.getElementById("success-unlocked").hidden = true;
+      } else {
+        lookupLicense().then((key) => {
+          document.getElementById("success-lead").hidden = true;
+          document.getElementById("success-unlocked").hidden = true;
+          if (!showLicense(key)) showMissingLicense();
+        });
+      }
+    </script>
   </body>
 </html>

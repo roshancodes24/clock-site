@@ -3,11 +3,11 @@
 window.CLOCK_PRICING = {
   annual: {
     checkoutUrl:
-      "https://test.checkout.dodopayments.com/buy/pdt_0NoQLOTtxTPc0ZMXI10Vl?quantity=1&redirect_url=https://roshancodes24.github.io/clock-site/success.html",
+      "https://test.checkout.dodopayments.com/buy/pdt_0NoQLOTtxTPc0ZMXI10Vl?quantity=1&redirect_url=https://www.clockextension.site/success.html",
   },
   lifetime: {
     checkoutUrl:
-      "https://test.checkout.dodopayments.com/buy/pdt_0NoQRzf9EjqwHBBM4OVRk?quantity=1&redirect_url=https://roshancodes24.github.io/clock-site/success.html",
+      "https://test.checkout.dodopayments.com/buy/pdt_0NoQRzf9EjqwHBBM4OVRk?quantity=1&redirect_url=https://www.clockextension.site/success.html",
   },
 };
 
