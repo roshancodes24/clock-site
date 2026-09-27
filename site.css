@@ -318,13 +318,14 @@ footer.site {
   align-items: center;
   justify-content: center;
   text-align: center;
+  gap: 16px;
   padding: 24px 0 8px;
 }
 
 .success-mark {
   width: 64px;
   height: 64px;
-  margin: 0 0 20px;
+  margin: 0;
   border-radius: 50%;
   background: #16a34a;
   color: #ffffff;
@@ -333,35 +334,15 @@ footer.site {
   line-height: 64px;
 }
 
+.success h1 {
+  margin: 0;
+}
+
 .success .lead {
   max-width: 28rem;
-}
-
-.success .btn {
-  margin-top: 16px;
-}
-
-.license-label {
-  margin: 16px 0 8px;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.license-key {
   margin: 0;
-  max-width: 100%;
-  min-height: 1.4em;
-  padding: 10px 14px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--card);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  word-break: break-all;
 }
 
-#copy-license {
-  margin-top: 12px;
+.success .btn.continue {
+  margin-top: 8px;
 }

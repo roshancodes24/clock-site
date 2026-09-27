@@ -10,22 +10,62 @@
     <link rel="icon" href="icon48.png" />
     <link rel="stylesheet" href="site.css" />
     <style>
-      .license-label { margin: 16px 0 8px; font-size: 14px; font-weight: 600; }
-      .license-key {
-        margin: 0 auto;
-        max-width: 28rem;
-        min-height: 1.4em;
-        padding: 10px 14px;
+      .success {
+        gap: 16px;
+      }
+      .success h1 {
+        margin: 0;
+      }
+      .success .lead {
+        margin: 0;
+      }
+      .success .btn.continue {
+        margin-top: 8px;
+      }
+      .license-card {
+        width: min(36rem, 100%);
+        margin: 8px 0 0;
+        padding: 16px 18px;
         border: 1px solid var(--border, #e2e8f0);
-        border-radius: 10px;
+        border-radius: 14px;
         background: var(--card, #ffffff);
+        text-align: left;
+      }
+      .license-label {
+        margin: 0 0 10px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--muted, #64748b);
+      }
+      .license-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .license-key {
+        flex: 1 1 auto;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: none;
         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 700;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.02em;
         word-break: break-all;
       }
-      #copy-license { margin-top: 12px; }
+      #copy-license {
+        flex: 0 0 auto;
+        margin: 0;
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+      #license-note {
+        margin: 10px 0 0;
+        font-size: 14px;
+        color: var(--muted, #64748b);
+      }
     </style>
   </head>
   <body>
@@ -48,12 +88,16 @@
         <p class="lead" id="success-unlocked">Premium features are now unlocked.</p>
         <div id="license-block">
           <p class="lead">Clock Premium is now active.</p>
-          <p class="license-label">Your license key:</p>
-          <p class="license-key" id="license-key">Looking up your license key…</p>
-          <button id="copy-license" class="btn secondary" type="button" hidden>Copy license key</button>
-          <p class="lead" id="license-note">Save this license key. Use it to unlock premium features.</p>
+          <div class="license-card">
+            <p class="license-label">Your license key</p>
+            <div class="license-row">
+              <p class="license-key" id="license-key">Looking up your license key…</p>
+              <button id="copy-license" class="btn secondary" type="button" hidden>Copy</button>
+            </div>
+            <p id="license-note">Save this license key. Use it to unlock premium features.</p>
+          </div>
         </div>
-        <a class="btn" href="./">Continue to Clock</a>
+        <a class="btn continue" href="./">Continue to Clock</a>
       </div>
     </main>
 
