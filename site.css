@@ -334,6 +334,16 @@ footer.site {
   line-height: 64px;
 }
 
+.success-mark.is-failed {
+  background: #dc2626;
+}
+
+.success-mark.is-pending {
+  background: #d97706;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
 .success h1 {
   margin: 0;
 }

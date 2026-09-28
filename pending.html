@@ -5,19 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <meta name="robots" content="noindex" />
-    <title>Payment successful — Clock</title>
-    <link rel="canonical" href="https://roshancodes24.github.io/clock-site/success.html" />
+    <title>Payment pending — Clock</title>
+    <link rel="canonical" href="https://roshancodes24.github.io/clock-site/pending.html" />
     <link rel="icon" href="icon48.png" />
     <link rel="stylesheet" href="site.css" />
-    <script>
-      (function () {
-        var status = (new URLSearchParams(location.search).get("status") || "").toLowerCase();
-        if (status === "failed") location.replace("failed.html" + location.search);
-        else if (status === "processing" || status.indexOf("requires_") === 0) {
-          location.replace("pending.html" + location.search);
-        }
-      })();
-    </script>
   </head>
   <body>
     <header class="site">
@@ -33,10 +24,10 @@
 
     <main>
       <div class="wrap success">
-        <div class="success-mark" aria-hidden="true">✓</div>
-        <h1>Payment Successful!</h1>
+        <div class="success-mark is-pending" aria-hidden="true">…</div>
+        <h1>Payment Pending</h1>
         <p class="lead">
-          Your license key has been emailed to you. Please check your inbox and enter the key in Clock to unlock your premium features.
+          Your payment is still being confirmed. Premium unlocks after it succeeds. Your license key will be emailed to you then.
         </p>
       </div>
     </main>
