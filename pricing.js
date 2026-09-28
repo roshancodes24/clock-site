@@ -1,13 +1,11 @@
-// Official test payment links. Replace these when the products move to live mode.
-
 window.CLOCK_PRICING = {
   annual: {
     checkoutUrl:
-      "https://test.checkout.dodopayments.com/buy/pdt_0NoQLOTtxTPc0ZMXI10Vl?quantity=1&redirect_url=https://www.clockextension.site/success.html",
+      "https://checkout.dodopayments.com/buy/pdt_0NoWOO7lmU3yoAoDFR9EE?quantity=1&redirect_url=https://www.clockextension.site/success.html",
   },
   lifetime: {
     checkoutUrl:
-      "https://test.checkout.dodopayments.com/buy/pdt_0NoQRzf9EjqwHBBM4OVRk?quantity=1&redirect_url=https://www.clockextension.site/success.html",
+      "https://checkout.dodopayments.com/buy/pdt_0NoWONyiSIm4nbMawqRjL?quantity=1&redirect_url=https://www.clockextension.site/success.html",
   },
 };
 
